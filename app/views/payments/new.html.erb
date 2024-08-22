@@ -1,0 +1,23 @@
+<h1>Checkout</h1>
+
+<%= form_with url: payment_path, method: :post, id: 'payment-form' do %>
+  <script src="https://js.stripe.com/v3/"></script>
+
+  <button id="checkout-button">Pay <%= number_to_currency(@amount / 100.0) %></button>
+
+  <script>
+    var stripe = Stripe('<%= Rails.application.credentials.dig(:stripe, :publishable_key) %>');
+    var checkoutButton = document.getElementById('checkout-button');
+
+    checkoutButton.addEventListener('click', function () {
+      stripe.redirectToCheckout({
+        sessionId: '<%= @session_id %>'
+      }).then(function (result) {
+        // If redirectToCheckout fails due to a browser or network error, display an error.
+        if (result.error) {
+          alert(result.error.message);
+        }
+      });
+    });
+  </script>
+<% end %>

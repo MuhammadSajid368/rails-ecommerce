@@ -1,0 +1,16 @@
+
+<div class="comment">
+  <strong><%= comment.user.name %>:</strong>
+  <p><%= comment.content %></p>
+
+  <%= link_to "Reply", "#", class: "btn btn-sm btn-secondary" %>
+  <%= link_to "Delete", [comment.product, comment], method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
+  
+  <!-- Display replies -->
+  <% comment.replies.each do |reply| %>
+    <div class="reply">
+      <strong><%= reply.user.name %>:</strong>
+      <p><%= reply.content %></p>
+    </div>
+  <% end %>
+</div>
