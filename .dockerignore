@@ -10,6 +10,11 @@
 /.env*
 !/.env*.erb
 
+.git
+tmp
+log
+node_modules
+
 # Ignore all default key files.
 /config/master.key
 /config/credentials/*.key
