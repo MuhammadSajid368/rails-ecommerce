@@ -18,7 +18,7 @@ gem 'devise'
 gem 'activerecord-session_store'
 
 # Database
-gem "sqlite3", "~> 1.4"
+gem "pg", "~> 1.1"
 
 # Password hashing
 gem 'bcrypt', '~> 3.1.7'
@@ -41,6 +41,7 @@ gem "turbo-rails"
 # Stimulus framework
 gem "stimulus-rails"
 
+gem "pg", "~> 1.1"
 # JSON APIs
 gem "jbuilder"
 
